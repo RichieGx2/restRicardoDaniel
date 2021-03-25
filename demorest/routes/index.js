@@ -11,4 +11,12 @@ router.get("/v1/guest", invitados.listaInvitados);
 
 const asistentes = require("../modulos/asistentes/status_assitance");
 router.get("/v1/asistencia", asistentes.listaStatus);
+
+//METODOS PARA ORGANIZADOR
+
+const organizador = require("../modulos/organizador/organizer");
+router.get("/v1/organizer", organizador.listarOrganizadores);
+router.post("/v1/organizer", organizador.registrarOrganizador);
+router.put("/v1/organizer", organizador.editarOrganizador);
+router.delete("/v1/organizer/:id", organizador.eliminarOrganizador);
 module.exports = router;
