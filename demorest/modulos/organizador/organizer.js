@@ -38,7 +38,7 @@ async function editarOrganizador(req, res, next) {
     const { name, organizer_id } = req.body;
     const {
       rowCount,
-    } = await db.result(
+    } = await dbCon.result(
       "UPDATE organizer SET name = $1 WHERE organizer_id = $2",
       [name, organizer_id]
     );
@@ -84,6 +84,6 @@ function eliminarOrganizador(req, res, next) {
 module.exports = {
   listarOrganizadores: listarOrganizadores,
   registrarOrganizador: registrarOrganizador,
-  editarOrganizador: editarOrganizador,
+  editarOrganizador,
   eliminarOrganizador: eliminarOrganizador,
 };
